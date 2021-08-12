@@ -4,6 +4,8 @@ Label the widgets, let click on the text also work. Now there are only four widg
 All parameters are exported, the usage method is exactly the same as the original widgets, 
 and four attributes are added to the label to simplify the use: labelColor, labelCheckColor, labelFontSize, labelFontWeight
 
+<img width="288" height="592" src="https://github.com/ctcwri/labeled_widgets/blob/master/example/assets/images/example.png"/>
+
 LabeledCheckbox
 ```dart
 bool? _checkboxValue = false;
