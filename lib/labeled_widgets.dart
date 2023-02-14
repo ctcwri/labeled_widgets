@@ -9,3 +9,4 @@ part 'src/labeled_checkbox.dart';
 part 'src/labeled_switch.dart';
 part 'src/labeled_cupertino_switch.dart';
 part 'src/labeled_radio.dart';
+part 'src/labeled_icon.dart';

@@ -107,6 +107,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
             ),
+            LabeledIcon(
+                label: 'Label icon',
+                iconColor: Colors.blue,
+                labelColor: Colors.red,
+                gap: 2,
+                icon: Icons.device_unknown),
           ],
         ),
       ),
