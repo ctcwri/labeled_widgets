@@ -7,7 +7,8 @@ class LabeledIcon extends StatelessWidget {
     required this.icon,
     this.mainAxisSize = MainAxisSize.min,
     this.padding,
-    this.gap = 0.0,
+    this.gap = 4,
+    this.minWidth = 0,
     this.labelFontSize,
     this.labelFontWeight,
     this.labelColor,
@@ -16,8 +17,8 @@ class LabeledIcon extends StatelessWidget {
     this.labelOverflow,
     this.labelMaxLines,
     this.labelTextWidthBasis,
-
     this.iconColor,
+    this.iconSize,
   }) : super(key: key);
 
   final String label;
@@ -32,40 +33,43 @@ class LabeledIcon extends StatelessWidget {
   final MainAxisSize mainAxisSize;
   final EdgeInsets? padding;
   final double gap;
-
+  final double minWidth;
   final IconData? icon;
   final Color? iconColor;
+  final double? iconSize;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Padding(
-        padding: padding ?? const EdgeInsets.fromLTRB(0, 0, 4, 0),
-        child: Row(
-          mainAxisSize: mainAxisSize,
-          children: <Widget>[
-            Icon(
-              icon,
-              color: iconColor,
+      constraints: BoxConstraints(
+        minWidth: minWidth,
+      ),
+      padding: padding ?? const EdgeInsets.fromLTRB(0, 0, 4, 0),
+      child:Row(
+        mainAxisSize: mainAxisSize,
+        children: <Widget>[
+          Icon(
+            icon,
+            color: iconColor,
+            size: iconSize,
+          ),
+          SizedBox(
+            width: gap,
+          ),
+          Flexible(
+            child: Label(
+              label,
+              fontSize: labelFontSize,
+              fontWeight: labelFontWeight,
+              color: labelColor,
+              style: labelStyle,
+              softWrap: labelSoftWrap,
+              overflow: labelOverflow,
+              maxLines: labelMaxLines,
+              textWidthBasis: labelTextWidthBasis,
             ),
-            SizedBox(
-              width: gap,
-            ),
-            Flexible(
-              child: Label(
-                label,
-                fontSize: labelFontSize,
-                fontWeight: labelFontWeight,
-                color: labelColor,
-                style: labelStyle,
-                softWrap: labelSoftWrap,
-                overflow: labelOverflow,
-                maxLines: labelMaxLines,
-                textWidthBasis: labelTextWidthBasis,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
